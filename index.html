@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Song and Word To-Go | Episode 1 with Ezer</title>
+  <link rel="stylesheet" href="thumbstyles.css">
+  <style>
+    
+  </style>
+</head>
+<body>
+  <div id="thumbnail" style="position: relative; width: 1280px; height: 720px; background-color: #1E3A8A;">
+    <div class="overlay" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
+      <!-- Host Image on Left Third -->
+      <div class="host-container" style="position: absolute; left: 5%; top: 30%;">
+        <img src="EzerEben.webp" alt="Ezer" class="host-image" style="width: 300px; height: auto; border-radius: 50%;">
+        <p class="host-label">With Ezer</p>
+      </div>
+
+      <!-- Text Content on Right Third -->
+      <div class="text-container" style="position: absolute; right: 5%; top: 20%;">
+        <h1 class="title">Song and Word To-Go</h1>
+        <p class="description">(Inspiring Songs & Encouraging Words)</p>
+        <h2 class="episode">Episode 1</h2>
+      </div>
+    </div>
+  </div>
+
+  <button id="saveThumbnail">Download Thumbnail</button>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+  <script>
+    document.getElementById('saveThumbnail').addEventListener('click', function () {
+      const thumbnailElement = document.getElementById('thumbnail');
+
+      html2canvas(thumbnailElement, { useCORS: true }).then(canvas => {
+        const link = document.createElement('a');
+        link.download = 'Song-and-Word-To-Go-Episode1.png';
+        link.href = canvas.toDataURL('image/png');
+        link.click();
+      });
+    });
+  </script>
+</body>
+</html>
